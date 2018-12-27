@@ -1,26 +1,8 @@
 .root {
-	text-align: center;
-}
+	position: fixed;
 
-.title {
-	animation: changeColor 10s infinite linear;
-	background-clip: text;
-	background-image: linear-gradient(30deg, #f35626, #feab3a);
-	color: #f35626;
-	font-size: 40px;
-	-webkit-text-fill-color: transparent;
-}
+	bottom: 0;
 
-.picture {
-	width: 300px;
-}
-
-@keyframes changeColor {
-	0% {
-		filter: hue-rotate(0deg);
-	}
-
-	100% {
-		filter: hue-rotate(360deg);
-	}
+	width: 100%;
+	height: 100px;
 }

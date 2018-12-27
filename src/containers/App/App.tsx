@@ -1,14 +1,13 @@
 import * as React from 'react'
 
+import Player from 'components/Player'
+
+import 'styles/global.pcss'
 import styles from './App.pcss'
-import picture from './assets/img.jpg'
 
-import { AppProps } from './App.d'
-
-const App = ({ title = 'React Typescript Starter Pack' }: AppProps) => (
+const App = () => (
 	<div className={styles.root}>
-		<img className={styles.picture} src={picture} alt="img"/>
-		<h1 className={styles.title}>{ title }</h1>
+		<Player/>
 	</div>
 )
 

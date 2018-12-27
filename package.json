@@ -1,9 +1,9 @@
 {
-  "name": "start-project",
+  "name": "react-music-player",
   "version": "1.0.0",
-  "description": "Start Typescript Project",
+  "description": "React Music Player",
   "main": "src/index.tsx",
-  "repository": "git@github.com:impavelsukhinin/start-project.git",
+  "repository": "git@github.com:impavelsukhinin/react-player.git",
   "author": "impavelsukhinin <p.sukhinin@rocketguys.com>",
   "license": "MIT",
   "scripts": {
