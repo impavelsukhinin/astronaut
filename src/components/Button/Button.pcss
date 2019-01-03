@@ -1,17 +1,17 @@
 .button {
 	--ripple-position-top: 1px;
 	--ripple-position-left: 1px;
-	--ripple-color: #9198e5;
 	--button-width: 3em;
 	--button-height: 3em;
 	position: relative;
 
-	display: inline-flex;
+	display: flex;
 
 	overflow: hidden;
 	justify-content: center;
-	padding: 40px;
-	border-radius: 4px;
+	padding: 2rem;
+	background: var(--orange);
+	border-radius: 1em;
 	cursor: pointer;
 
 	&.withRipple::before {
@@ -24,9 +24,9 @@
 		top: calc(var(--ripple-position-top) - var(--button-height) / 2);
 		left: calc(var(--ripple-position-left) - var(--button-width) / 2);
 
-		width: var(--button-width);
-		height: var(--button-height);
-		background: var(--ripple-color);
+		width: 3em;
+		height: 3em;
+		background: white;
 		border-radius: 50%;
 		content: '';
 		opacity: 0;
@@ -37,15 +37,20 @@
 .children {
 	position: relative;
 	z-index: 2;
+
+	display: flex;
+	align-content: center;
 }
 
 @keyframes ripple {
 	from {
+		overflow: hidden;
 		opacity: 0.6;
 		transform: scale(0);
 	}
 
 	to {
+		overflow: hidden;
 		opacity: 0;
 		transform: scale(8);
 	}
