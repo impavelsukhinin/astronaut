@@ -1,0 +1,52 @@
+.button {
+	--ripple-position-top: 1px;
+	--ripple-position-left: 1px;
+	--ripple-color: #9198e5;
+	--button-width: 3em;
+	--button-height: 3em;
+	position: relative;
+
+	display: inline-flex;
+
+	overflow: hidden;
+	justify-content: center;
+	padding: 40px;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&.withRipple::before {
+		animation: ripple 0.8s ease;
+	}
+
+	&::before {
+		position: absolute;
+		z-index: 1;
+		top: calc(var(--ripple-position-top) - var(--button-height) / 2);
+		left: calc(var(--ripple-position-left) - var(--button-width) / 2);
+
+		width: var(--button-width);
+		height: var(--button-height);
+		background: var(--ripple-color);
+		border-radius: 50%;
+		content: '';
+		opacity: 0;
+		transition: transform 0.4s;
+	}
+}
+
+.children {
+	position: relative;
+	z-index: 2;
+}
+
+@keyframes ripple {
+	from {
+		opacity: 0.6;
+		transform: scale(0);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale(8);
+	}
+}
