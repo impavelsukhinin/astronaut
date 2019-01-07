@@ -9,7 +9,10 @@ import avenger from './assets/avenger.jpg'
 
 const App = () => (
 	<div className={styles.root}>
-		<img className={styles.albumPhoto} src={avenger} alt="image"/>
+		<div className={styles.songInfo}>
+			<img className={styles.albumPhoto} src={avenger} alt="image"/>
+			<div className={styles.songName}>the toxic avenger - my only chance</div>
+		</div>
 		<div className={styles.player}>
 			<Player/>
 		</div>

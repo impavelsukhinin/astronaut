@@ -22,6 +22,7 @@ class Player extends React.PureComponent {
 				<Timeline/>
 				<div className={styles.main}>
 					<NavPanel play={play} onPlayButtonClick={this.playPauseClick}/>
+					<div>Громкость</div>
 				</div>
 			</div>
 		)

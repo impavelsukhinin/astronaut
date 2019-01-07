@@ -14,14 +14,25 @@
 	height: 120px;
 }
 
-.albumPhoto {
+.songInfo {
 	position: absolute;
 	top: 5em;
 	left: 50%;
 
+	max-width: 500px;
+	text-align: center;
+	transform: translateX(-50%);
+}
+
+.albumPhoto {
 	width: 400px;
 	height: 400px;
 	box-shadow: 0 0 1em 0 rgba(255, 255, 255, 0.3);
-	transform: translateX(-50%);
 	user-select: none;
+}
+
+.songName {
+	margin-top: 1em;
+	color: white;
+	font-size: 1.3em;
 }
