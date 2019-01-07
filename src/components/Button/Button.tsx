@@ -3,11 +3,11 @@ import classnames from 'classnames/bind'
 
 import styles from './Button.pcss'
 
-import { ButtonProps, ButtonState } from './Button.d'
+import { IButtonProps, IButtonState } from './Button.d'
 
 const cx = classnames.bind(styles)
 
-class Button extends React.PureComponent<ButtonProps, ButtonState> {
+class Button extends React.PureComponent<IButtonProps, IButtonState> {
 	buttonRef = React.createRef<HTMLDivElement>()
 	state = {
 		withRipple: false,

@@ -7,7 +7,9 @@ import 'styles/global.pcss'
 
 const App = () => (
 	<div className={styles.root}>
-		<Player/>
+		<div className={styles.player}>
+			<Player/>
+		</div>
 	</div>
 )
 

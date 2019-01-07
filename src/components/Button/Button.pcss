@@ -10,12 +10,19 @@
 	overflow: hidden;
 	justify-content: center;
 	padding: 2rem;
-	background: var(--orange);
+	background: rgb(4, 94, 127);
 	border-radius: 1em;
+	box-shadow: 0 0.2em 1em 0 rgba(0, 0, 0, 0.5);
 	cursor: pointer;
+	transition: transform 0.3s, box-shadow 0.3s;
 
 	&.withRipple::before {
 		animation: ripple 0.8s ease;
+	}
+
+	&:hover {
+		box-shadow: 0 0.5em 1.5em 0 rgba(0, 0, 0, 0.5);
+		transform: scale(1.05);
 	}
 
 	&::before {
