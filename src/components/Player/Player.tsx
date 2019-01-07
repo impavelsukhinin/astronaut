@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import NavPanel from './NavPanel'
+import Timeline from './Timeline'
 
 import styles from './Player.pcss'
 
@@ -18,7 +19,10 @@ class Player extends React.PureComponent {
 
 		return (
 			<div className={styles.root}>
-				<NavPanel play={play} onPlayButtonClick={this.playPauseClick} />
+				<Timeline/>
+				<div className={styles.main}>
+					<NavPanel play={play} onPlayButtonClick={this.playPauseClick}/>
+				</div>
 			</div>
 		)
 	}
