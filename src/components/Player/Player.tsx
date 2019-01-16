@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import NavPanel from './NavPanel'
 import Timeline from './Timeline'
+import RangeSlider  from 'components/UI/RangeSlider'
 
 import styles from './Player.pcss'
 
@@ -22,7 +23,7 @@ class Player extends React.PureComponent {
 				<Timeline/>
 				<div className={styles.main}>
 					<NavPanel play={play} onPlayButtonClick={this.playPauseClick}/>
-					<div>Громкость</div>
+					<RangeSlider startValue={0}/>
 				</div>
 			</div>
 		)
