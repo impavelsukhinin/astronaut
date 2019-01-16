@@ -15,6 +15,10 @@ class Player extends React.PureComponent {
 		play: !this.state.play
 	})
 
+	onVolumeChange = (percent: string | number) => {
+		console.log(`Громкость: ${percent}`)
+	}
+
 	render() {
 		const { play } = this.state
 
@@ -23,7 +27,7 @@ class Player extends React.PureComponent {
 				<Timeline/>
 				<div className={styles.main}>
 					<NavPanel play={play} onPlayButtonClick={this.playPauseClick}/>
-					<RangeSlider startValue={0}/>
+					<RangeSlider onChange={this.onVolumeChange}/>
 				</div>
 			</div>
 		)
