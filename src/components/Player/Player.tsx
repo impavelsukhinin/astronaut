@@ -6,17 +6,40 @@ import RangeSlider  from 'components/UI/RangeSlider'
 
 import styles from './Player.pcss'
 
-class Player extends React.PureComponent {
+import { PlayerProps, PlayerState } from './Player.d'
+
+class Player extends React.PureComponent<PlayerProps, PlayerState> {
+	sound = new Audio(this.props.sound)
 	state = {
 		play: false,
 	}
 
-	playPauseClick = () => this.setState({
-		play: !this.state.play
+	componentDidMount() {
+		this.sound.addEventListener('timeupdate', this.timeUpdate)
+	}
+
+	componentWillUnmount() {
+		this.sound.removeEventListener('timeupdate', this.timeUpdate)
+	}
+
+	timeUpdate = (e: any) => {
+		console.log(e.currentTarget.currentTime)
+	}
+
+	playPauseClick = () => this.setState((state) => {
+		if (!state.play) {
+			this.sound.play()
+		} else {
+			this.sound.pause()
+		}
+
+		return {
+			play: !state.play
+		}
 	})
 
 	onVolumeChange = (percent: string | number) => {
-		console.log(`Громкость: ${percent}`)
+		this.sound.volume = +percent / 100
 	}
 
 	render() {
@@ -27,7 +50,7 @@ class Player extends React.PureComponent {
 				<Timeline/>
 				<div className={styles.main}>
 					<NavPanel play={play} onPlayButtonClick={this.playPauseClick}/>
-					<RangeSlider onChange={this.onVolumeChange}/>
+					<RangeSlider startValue={100} onChange={this.onVolumeChange}/>
 				</div>
 			</div>
 		)

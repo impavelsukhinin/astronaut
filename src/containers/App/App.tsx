@@ -5,6 +5,7 @@ import Player from 'components/Player'
 import styles from './App.pcss'
 import 'styles/global.pcss'
 
+import test from './assets/test.mp3'
 import avenger from './assets/avenger.jpg'
 
 const App = () => (
@@ -14,7 +15,7 @@ const App = () => (
 			<div className={styles.songName}>the toxic avenger - my only chance</div>
 		</div>
 		<div className={styles.player}>
-			<Player/>
+			<Player sound={test}/>
 		</div>
 	</div>
 )
