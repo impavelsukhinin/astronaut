@@ -1,8 +1,8 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, ReactHTML, ReactNode } from 'react'
 
-type IHandler = (e: Event) => void
+type IHandler = (e: Event | React.SyntheticEvent) => void
 
-const useEventListener = (eventName: string, handler: IHandler, element = document) => {
+const useEventListener = <T extends HTMLElement>(eventName: string, handler: IHandler, element: T | Document = document) => {
 	const savedHandler = useRef<IHandler>()
 
 	useEffect(() => {

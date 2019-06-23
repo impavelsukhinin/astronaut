@@ -8,7 +8,7 @@ import { RangeSliderProps } from './RangeSlider.d'
 
 const cx = classnames.bind(styles)
 
-const RangeSlider = ({ startValue = 0, onChange }: RangeSliderProps) => {
+const RangeSlider = ({ startValue = 100, onChange }: RangeSliderProps) => {
 	const [mouseDown, setMouseDown] = useState<boolean>(false)
 
 	const slider = useRef<HTMLDivElement>(null)

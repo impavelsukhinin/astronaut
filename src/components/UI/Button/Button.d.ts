@@ -3,7 +3,3 @@ export interface IButtonProps {
 	className?: string;
 	onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
-
-export interface IButtonState {
-	withRipple: boolean;
-}

@@ -4,7 +4,3 @@ export interface PlayerProps {
 	onPrevClick?: () => void
 	onPlayPauseClick?: () => void
 }
-
-export interface PlayerState {
-	play: boolean
-}

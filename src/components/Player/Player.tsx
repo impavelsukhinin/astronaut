@@ -1,60 +1,44 @@
-import * as React from 'react'
+import React, { memo, useState } from 'react'
+
+import RangeSlider  from 'components/UI/RangeSlider'
+import useEventListner from 'utils/useEventListner'
 
 import NavPanel from './NavPanel'
 import Timeline from './Timeline'
-import RangeSlider  from 'components/UI/RangeSlider'
 
 import styles from './Player.pcss'
 
-import { PlayerProps, PlayerState } from './Player.d'
+import { PlayerProps } from './Player.d'
 
-class Player extends React.PureComponent<PlayerProps, PlayerState> {
-	sound = new Audio(this.props.sound)
-	state = {
-		play: false,
-	}
+const Player = ({ sound }: PlayerProps) => {
+	const [soundEl] = useState<HTMLAudioElement>(new Audio(sound))
+	const [play, setPlay] = useState<boolean>(false)
 
-	componentDidMount() {
-		this.sound.addEventListener('timeupdate', this.timeUpdate)
-	}
-
-	componentWillUnmount() {
-		this.sound.removeEventListener('timeupdate', this.timeUpdate)
-	}
-
-	timeUpdate = (e: any) => {
+	const timeUpdate = (e: React.SyntheticEvent<HTMLAudioElement>) => {
 		console.log(e.currentTarget.currentTime)
 	}
 
-	playPauseClick = () => this.setState((state) => {
-		if (!state.play) {
-			this.sound.play()
-		} else {
-			this.sound.pause()
-		}
+	useEventListner<HTMLAudioElement>('timeupdate', timeUpdate, soundEl)
 
-		return {
-			play: !state.play
-		}
-	})
+	const playPauseClick = () => {
+		soundEl[play ? 'pause' : 'play']()
 
-	onVolumeChange = (percent: string | number) => {
-		this.sound.volume = +percent / 100
+		setPlay(!play)
 	}
 
-	render() {
-		const { play } = this.state
+	const onVolumeChange = (percent: string | number) => {
+		soundEl.volume = +percent / 100
+	}
 
-		return (
-			<div className={styles.root}>
-				<Timeline/>
-				<div className={styles.main}>
-					<NavPanel play={play} onPlayButtonClick={this.playPauseClick}/>
-					<RangeSlider startValue={100} onChange={this.onVolumeChange}/>
-				</div>
+	return (
+		<div className={styles.root}>
+			<Timeline/>
+			<div className={styles.main}>
+				<NavPanel play={play} onPlayButtonClick={playPauseClick}/>
+				<RangeSlider startValue={100} onChange={onVolumeChange}/>
 			</div>
-		)
-	}
+		</div>
+	)
 }
 
-export default Player
+export default memo(Player)

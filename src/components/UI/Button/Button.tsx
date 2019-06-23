@@ -1,21 +1,18 @@
-import * as React from 'react'
+import React, { memo, useState, useRef } from 'react'
 import classnames from 'classnames/bind'
 
 import styles from './Button.pcss'
 
-import { IButtonProps, IButtonState } from './Button.d'
+import { IButtonProps } from './Button.d'
 
 const cx = classnames.bind(styles)
 
-class Button extends React.PureComponent<IButtonProps, IButtonState> {
-	buttonRef = React.createRef<HTMLDivElement>()
-	state = {
-		withRipple: false,
-	}
+const Button = ({ children, className, onClick }: IButtonProps) => {
+	const buttonRef = React.useRef<HTMLDivElement>(null)
+	const [withRipple, setWithRipple] = useState<boolean>(false)
 
-	onClickHd = (e: React.MouseEvent<HTMLDivElement>) => {
-		const { onClick } = this.props
-		const { current: button } = this.buttonRef
+	const onClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+		const { current: button } = buttonRef
 		const rect = button.getBoundingClientRect()
 		const x = e.clientX - rect.left
 		const y = e.clientY - rect.top
@@ -23,11 +20,11 @@ class Button extends React.PureComponent<IButtonProps, IButtonState> {
 		button.style.setProperty('--ripple-position-top', `${y}px`)
 		button.style.setProperty('--ripple-position-left', `${x}px`)
 
-		if (this.state.withRipple === false) {
-			this.setState({ withRipple: true })
+		if (withRipple === false) {
+			setWithRipple(true)
 
 			setTimeout(() => {
-				this.setState({ withRipple: false })
+				setWithRipple(false)
 			}, 500)
 		}
 
@@ -36,22 +33,17 @@ class Button extends React.PureComponent<IButtonProps, IButtonState> {
 		}
 	}
 
-	render() {
-		const { children, className } = this.props
-		const { withRipple } = this.state
-
-		return (
-			<div
-				ref={this.buttonRef}
-				onClick={this.onClickHd}
-				className={cx('button', className, { withRipple })}
-			>
-				<div className={styles.children}>
-					{children}
-				</div>
+	return (
+		<div
+			ref={buttonRef}
+			onClick={onClickHandler}
+			className={cx('button', className, { withRipple })}
+		>
+			<div className={styles.children}>
+				{children}
 			</div>
-		)
-	}
+		</div>
+	)
 }
 
-export default Button
+export default memo(Button)
