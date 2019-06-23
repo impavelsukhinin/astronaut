@@ -2,10 +2,12 @@
 module.exports = [
 	{
 		test: /\.tsx?$/,
-		use: [
-			'babel-loader',
-			'ts-loader',
-		],
+		use: [{
+			loader: 'ts-loader',
+			options: {
+				transpileOnly: true,
+			},
+		}],
 		exclude: /node_modules/,
 	},
 	{
@@ -15,8 +17,9 @@ module.exports = [
 			{
 				loader: 'css-loader',
 				options: {
-					modules: true,
-					localIdentName: '[name]--[local]--[hash:base64:5]',
+					modules: {
+						localIdentName: '[name]--[local]--[hash:base64:5]',
+					},
 					sourceMap: true,
 					importLoaders: 1,
 				},
