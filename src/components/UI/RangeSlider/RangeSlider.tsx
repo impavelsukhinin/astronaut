@@ -31,7 +31,7 @@ const RangeSlider = ({ startValue = 100, onChange }: RangeSliderProps) => {
 		updateDragger(e)
 	}
 
-	const changeButtonPosition = (percent: number | string) => {
+	const changeButtonPosition = (percent: number) => {
 		const { current: currentButton } = button
 		const { current: currentDone } = done
 
@@ -46,7 +46,7 @@ const RangeSlider = ({ startValue = 100, onChange }: RangeSliderProps) => {
 		const fullPercent = rightBorder - leftBorder
 
 		if (mouseDown && x && x >= leftBorder && x <= rightBorder) {
-			const percent = ((x - leftBorder) / fullPercent * 100).toFixed(2)
+			const percent = +((x - leftBorder) / fullPercent * 100).toFixed(2)
 
 			changeButtonPosition(percent)
 			onChange(percent)
