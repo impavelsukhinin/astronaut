@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react'
 import classnames from 'classnames'
 
-import RangeSlider  from 'components/UI/RangeSlider'
+import RangeSlider from 'components/UI/RangeSlider'
 import useEventListner from 'utils/useEventListner'
 
 import NavPanel from './NavPanel'
@@ -32,14 +32,14 @@ const Player = ({ sound, className, onNextClick, onPrevClick, onPlayPauseClick }
 		}
 	}
 
-	const onVolumeChange = (percent: number) => soundEl.volume = percent / 100
+	const onVolumeChange = (percent: number) => (soundEl.volume = percent / 100)
 
 	return (
 		<div className={classnames(styles.root, className)}>
-			<Timeline/>
+			<Timeline />
 			<div className={styles.main}>
-				<NavPanel play={play} onPlayButtonClick={playPauseClick}/>
-				<RangeSlider startValue={100} onChange={onVolumeChange}/>
+				<NavPanel play={play} onPlayButtonClick={playPauseClick} />
+				<RangeSlider startValue={100} onChange={onVolumeChange} />
 			</div>
 		</div>
 	)

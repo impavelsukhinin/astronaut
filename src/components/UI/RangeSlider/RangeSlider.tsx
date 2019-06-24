@@ -46,7 +46,7 @@ const RangeSlider = ({ startValue = 100, onChange }: RangeSliderProps) => {
 		const fullPercent = rightBorder - leftBorder
 
 		if (mouseDown && x && x >= leftBorder && x <= rightBorder) {
-			const percent = +((x - leftBorder) / fullPercent * 100).toFixed(2)
+			const percent = +(((x - leftBorder) / fullPercent) * 100).toFixed(2)
 
 			changeButtonPosition(percent)
 			onChange(percent)
@@ -58,8 +58,8 @@ const RangeSlider = ({ startValue = 100, onChange }: RangeSliderProps) => {
 
 	return (
 		<div ref={slider} className={styles.slider}>
-			<div ref={done} className={styles.done}/>
-			<button ref={button} className={cx('button', { active: mouseDown })}/>
+			<div ref={done} className={styles.done} />
+			<button ref={button} className={cx('button', { active: mouseDown })} />
 		</div>
 	)
 }

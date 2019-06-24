@@ -9,9 +9,9 @@ setConfig({ pureSFC: true })
 const render = (Component: any) => {
 	ReactDOM.render(
 		<AppContainer>
-			<Component/>
+			<Component />
 		</AppContainer>,
-		document.getElementById('app')
+		document.getElementById('app'),
 	)
 }
 

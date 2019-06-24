@@ -1,4 +1,4 @@
 export interface INavPanelProps {
-	play?: boolean;
-	onPlayButtonClick?: () => void;
+	play?: boolean
+	onPlayButtonClick?: () => void
 }

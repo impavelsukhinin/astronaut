@@ -2,7 +2,11 @@ import { useRef, useEffect, ReactHTML, ReactNode } from 'react'
 
 type IHandler = (e: Event | React.SyntheticEvent) => void
 
-const useEventListener = <T extends HTMLElement>(eventName: string, handler: IHandler, element: T | Document = document) => {
+const useEventListener = <T extends HTMLElement>(
+	eventName: string,
+	handler: IHandler,
+	element: T | Document = document,
+) => {
 	const savedHandler = useRef<IHandler>()
 
 	useEffect(() => {

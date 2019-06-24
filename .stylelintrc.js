@@ -1,53 +1,30 @@
 const trbl = (name, suffix = '') => {
-	const props = [
-		name,
-		`${name}-top`,
-		`${name}-right`,
-		`${name}-bottom`,
-		`${name}-left`
-	]
+	const props = [name, `${name}-top`, `${name}-right`, `${name}-bottom`, `${name}-left`]
 
 	if (suffix.length === 0) {
 		return props
 	}
 
-	return props.map(prop => `${prop}-${suffix}`)
+	return props.map((prop) => `${prop}-${suffix}`)
 }
 
-const minMax = (suffix) => [
-	suffix,
-	`min-${suffix}`,
-	`max-${suffix}`,
-]
+const minMax = (suffix) => [suffix, `min-${suffix}`, `max-${suffix}`]
 
 module.exports = {
 	plugins: 'stylelint-order',
 	extends: 'stylelint-config-standard',
 	ignoreFiles: './scripts/*',
 	rules: {
-		'order/order': [
-			['custom-properties'],
-			{ unspecified: 'bottom' }
-		],
+		'order/order': [['custom-properties'], { unspecified: 'bottom' }],
 		'order/properties-order': [
 			[
 				{
 					emptyLineBefore: 'always',
-					properties: [
-						'all',
-						'composes',
-					],
+					properties: ['all', 'composes'],
 				},
 				{
 					emptyLineBefore: 'always',
-					properties: [
-						'position',
-						'z-index',
-						'top',
-						'right',
-						'bottom',
-						'left',
-					],
+					properties: ['position', 'z-index', 'top', 'right', 'bottom', 'left'],
 				},
 				{
 					emptyLineBefore: 'always',
@@ -81,7 +58,7 @@ module.exports = {
 				},
 			],
 			{
-				unspecified: 'bottomAlphabetical'
+				unspecified: 'bottomAlphabetical',
 			},
 		],
 		'font-family-name-quotes': 'always-where-required',
@@ -92,24 +69,24 @@ module.exports = {
 		'selector-pseudo-class-no-unknown': [
 			true,
 			{
-				ignorePseudoClasses: ['global']
-			}
+				ignorePseudoClasses: ['global'],
+			},
 		],
-		'indentation': 'tab',
+		indentation: 'tab',
 		'declaration-empty-line-before': [
 			'never',
 			{
-				'ignore': ['after-declaration']
-			}
+				ignore: ['after-declaration'],
+			},
 		],
 		'property-no-unknown': [
 			true,
 			{
-				'ignoreProperties': ['composes']
-			}
+				ignoreProperties: ['composes'],
+			},
 		],
 		'no-descending-specificity': null,
 		'declaration-block-no-redundant-longhand-properties': null,
 		'font-family-no-missing-generic-family-keyword': null,
-	}
+	},
 }

@@ -34,14 +34,8 @@ const Button = ({ children, className, onClick }: IButtonProps) => {
 	}
 
 	return (
-		<div
-			ref={buttonRef}
-			onClick={onClickHandler}
-			className={cx('button', className, { withRipple })}
-		>
-			<div className={styles.children}>
-				{children}
-			</div>
+		<div ref={buttonRef} onClick={onClickHandler} className={cx('button', className, { withRipple })}>
+			<div className={styles.children}>{children}</div>
 		</div>
 	)
 }
