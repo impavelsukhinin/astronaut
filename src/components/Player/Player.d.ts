@@ -1,5 +1,5 @@
 export interface PlayerProps {
-	/* audio file path */
+	/* audio file path/url */
 	sound?: string
 	/* classname for root element */
 	className?: string
@@ -9,4 +9,8 @@ export interface PlayerProps {
 	onPrevClick?: () => void
 	/* on Play/Pause button event handler */
 	onPlayPauseClick?: () => void
+	/* on current sound ended event handler */
+	onSoundEnded?: () => void
+	/* on current sound time update */
+	onTimeUpdate?: (currentTime?: number) => void
 }

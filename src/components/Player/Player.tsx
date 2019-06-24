@@ -3,6 +3,7 @@ import classnames from 'classnames'
 
 import RangeSlider from 'components/UI/RangeSlider'
 import useEventListner from 'utils/useEventListner'
+import useUpdate from 'utils/useUpdate'
 
 import NavPanel from './NavPanel'
 import Timeline from './Timeline'
@@ -11,16 +12,57 @@ import styles from './Player.pcss'
 
 import { PlayerProps } from './Player.d'
 
-const Player = ({ sound, className, onNextClick, onPrevClick, onPlayPauseClick }: PlayerProps) => {
+const Player = ({
+	sound,
+	className,
+	onNextClick,
+	onPrevClick,
+	onPlayPauseClick,
+	onSoundEnded,
+	onTimeUpdate,
+}: PlayerProps) => {
 	const [soundEl] = useState<HTMLAudioElement>(new Audio(sound))
+	const [timePercent, setTimePercent] = useState<number>(0)
+	const [bufferPercent, setBufferPercent] = useState<number>(0)
 	const [play, setPlay] = useState<boolean>(false)
 
-	const timeUpdate = (e: React.SyntheticEvent<HTMLAudioElement>) => {
-		console.log(e.currentTarget.currentTime)
-		console.log(e.currentTarget.duration)
+	useUpdate(() => {
+		reset(true)
+		soundEl.src = sound
+		soundEl.play()
+	}, [sound])
+
+	const handleUpdateTime = (e: React.SyntheticEvent<HTMLAudioElement>) => {
+		const { currentTime, duration, buffered } = e.currentTarget
+
+		setTimePercent((currentTime / duration) * 100)
+
+		if (buffered.length > 0) {
+			setBufferPercent((buffered.end(0) / duration) * 100)
+		}
+
+		if (typeof onTimeUpdate === 'function') {
+			onTimeUpdate(currentTime)
+		}
 	}
 
-	useEventListner<HTMLAudioElement>('timeupdate', timeUpdate, soundEl)
+	const reset = (playState: boolean) => {
+		setTimePercent(0)
+		setBufferPercent(0)
+		setPlay(playState)
+	}
+
+	const onEnded = () => {
+		reset(false)
+
+		if (typeof onSoundEnded === 'function') {
+			onSoundEnded()
+		}
+	}
+
+	const onChangeTimeHandler = (percent: number) => {
+		soundEl.currentTime = soundEl.duration * percent
+	}
 
 	const playPauseClick = () => {
 		soundEl[play ? 'pause' : 'play']()
@@ -34,11 +76,16 @@ const Player = ({ sound, className, onNextClick, onPrevClick, onPlayPauseClick }
 
 	const onVolumeChange = (percent: number) => (soundEl.volume = percent / 100)
 
+	useEventListner<HTMLAudioElement>('timeupdate', handleUpdateTime, soundEl)
+	useEventListner<HTMLAudioElement>('ended', onEnded, soundEl)
+
+	if (!sound) return <>Can't read your song path:)</>
+
 	return (
 		<div className={classnames(styles.root, className)}>
-			<Timeline />
+			<Timeline bufferPercent={bufferPercent} timePercent={timePercent} onTimelineClick={onChangeTimeHandler} />
 			<div className={styles.main}>
-				<NavPanel play={play} onPlayButtonClick={playPauseClick} />
+				<NavPanel play={play} onPlayButtonClick={playPauseClick} onNextClick={onNextClick} onPrevClick={onPrevClick} />
 				<RangeSlider startValue={100} onChange={onVolumeChange} />
 			</div>
 		</div>
