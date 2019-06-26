@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
     "prettier": "prettier --write \"{src/**/*.{ts,tsx},*.{json,js}}\"",
+    "storybook": "start-storybook",
     "lint": "tslint -p tsconfig.json -c tslint.json 'src/**/*.ts?(x)'"
   },
   "prettier": {
@@ -22,21 +23,25 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^5.1.9",
+    "@storybook/react": "^5.1.9",
     "@types/classnames": "^2.2.8",
     "@types/node": "^12.0.10",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "@types/react-hot-loader": "^4.1.0",
+    "@types/storybook__react": "^4.0.2",
     "@types/webpack-env": "^1.13.9",
     "awesome-typescript-loader": "^5.2.1",
     "classnames": "^2.2.6",
     "css-loader": "^3.0.0",
     "cssnano": "^4.1.10",
     "file-loader": "^4.0.0",
-    "prettier": "^1.18.2",
     "html-webpack-plugin": "^3.2.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
+    "prettier": "^1.18.2",
+    "react-docgen-typescript-loader": "^3.1.0",
     "react-hot-loader": "^4.11.1",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",

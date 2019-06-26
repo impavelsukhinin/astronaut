@@ -9,7 +9,8 @@
     "target": "esnext",
     "jsx": "react",
     "allowJs": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "rootDir": "src"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "public", ".cache"]
