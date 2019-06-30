@@ -7,9 +7,8 @@
   "author": "impavelsukhinin <p.sukhinin@rocketguys.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack/webpack.config.js --mode development",
+    "start": "start-storybook",
     "prettier": "prettier --write \"{src/**/*.{ts,tsx},*.{json,js}}\"",
-    "storybook": "start-storybook",
     "lint": "tslint -p tsconfig.json -c tslint.json 'src/**/*.ts?(x)'"
   },
   "prettier": {
@@ -30,6 +29,7 @@
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "@types/react-hot-loader": "^4.1.0",
+    "@types/storybook__addon-info": "^4.1.2",
     "@types/storybook__react": "^4.0.2",
     "@types/webpack-env": "^1.13.9",
     "awesome-typescript-loader": "^5.2.1",

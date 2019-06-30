@@ -7,7 +7,6 @@ import { TimelineProps } from './Timeline.d'
 const Timeline = ({ timePercent, bufferPercent, onTimelineClick }: TimelineProps) => {
 	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		const { currentTarget, clientX } = e
-
 		const { left, width } = currentTarget.getBoundingClientRect()
 		const pos = clientX - left
 

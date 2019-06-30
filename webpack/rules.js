@@ -1,13 +1,15 @@
-
 module.exports = [
 	{
 		test: /\.tsx?$/,
-		use: [{
-			loader: 'ts-loader',
-			options: {
-				transpileOnly: true,
+		use: [
+			{
+				loader: 'ts-loader',
+				options: {
+					transpileOnly: true,
+				},
 			},
-		}],
+			require.resolve('react-docgen-typescript-loader'),
+		],
 		exclude: /node_modules/,
 	},
 	{
@@ -37,6 +39,7 @@ module.exports = [
 				},
 			},
 		],
+		exclude: /node_modules/,
 	},
 	{
 		test: /\.(woff|woff2|eot|ttf|otf)$/,

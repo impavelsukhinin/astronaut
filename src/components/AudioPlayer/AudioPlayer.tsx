@@ -1,18 +1,17 @@
 import React, { memo, useState } from 'react'
 import classnames from 'classnames'
 
-import RangeSlider from 'components/UI/RangeSlider'
+import { RangeSlider, Timeline } from 'components/UI'
 import useEventListner from 'utils/useEventListner'
 import useUpdate from 'utils/useUpdate'
 
 import NavPanel from './NavPanel'
-import Timeline from './Timeline'
 
-import styles from './Player.pcss'
+import styles from './AudioPlayer.pcss'
 
-import { PlayerProps } from './Player.d'
+import { PlayerProps } from './AudioPlayer.d'
 
-const Player = ({
+const AudioPlayer = ({
 	sound,
 	className,
 	onNextClick,
@@ -79,8 +78,6 @@ const Player = ({
 	useEventListner<HTMLAudioElement>('timeupdate', handleUpdateTime, soundEl)
 	useEventListner<HTMLAudioElement>('ended', onEnded, soundEl)
 
-	if (!sound) return <>Can't read your song path:)</>
-
 	return (
 		<div className={classnames(styles.root, className)}>
 			<Timeline bufferPercent={bufferPercent} timePercent={timePercent} onTimelineClick={onChangeTimeHandler} />
@@ -92,4 +89,4 @@ const Player = ({
 	)
 }
 
-export default memo(Player)
+export default memo(AudioPlayer)
