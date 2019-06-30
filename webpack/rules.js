@@ -8,7 +8,7 @@ module.exports = [
 					transpileOnly: true,
 				},
 			},
-			require.resolve('react-docgen-typescript-loader'),
+			// require.resolve('react-docgen-typescript-loader'),
 		],
 		exclude: /node_modules/,
 	},

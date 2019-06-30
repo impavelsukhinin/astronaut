@@ -1,6 +1,6 @@
 import { configure, addParameters } from '@storybook/react'
 
-const req = require.context('../src/', true, /\.stories\.tsx$/)
+const req = require.context('../stories/', true, /\.stories\.tsx$/)
 
 addParameters({
 	options: {

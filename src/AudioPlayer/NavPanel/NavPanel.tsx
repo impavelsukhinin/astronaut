@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, Icon } from 'components/UI'
+import { Button, Icon } from 'UI'
 
 import styles from './NavPanel.pcss'
 

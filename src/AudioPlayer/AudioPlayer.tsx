@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react'
 import classnames from 'classnames'
 
-import { RangeSlider, Timeline } from 'components/UI'
+import { RangeSlider, Timeline } from 'UI'
 import useEventListner from 'utils/useEventListner'
 import useUpdate from 'utils/useUpdate'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import AudioPlayer from 'components/AudioPlayer'
+import AudioPlayer from '../src/AudioPlayer'
 
 storiesOf('AudioPlayer', module)
 .addDecorator(withInfo)
