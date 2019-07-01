@@ -3,10 +3,11 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const rules = require('./rules')
+const libName = 'austronaut'
 
 module.exports = {
 	entry: {
-		app: path.resolve(__dirname, '../src/index.tsx'),
+		[`${libName}.min`]: path.resolve(__dirname, '../src/index.tsx'),
 	},
 	resolve: {
 		modules: [path.resolve(__dirname, '../src'), 'node_modules'],
@@ -20,22 +21,13 @@ module.exports = {
 	],
 	optimization: {
 		minimize: true,
-		minimizer: [new UglifyJsPlugin({
-			uglifyOptions: {
-				warnings: false,
-				output: {
-					// comments: false,
-				},
-			},
-			cache: true,
-			parallel: true,
-		})],
+		minimizer: [new UglifyJsPlugin()],
 	},
 	module: { rules },
 	output: {
-		filename: 'index.js',
-		path: path.resolve(__dirname, '../dist'),
-		library: 'austronaut',
+		filename: '[name].js',
+		path: path.resolve(__dirname, '../bundles'),
+		library: libName,
 		libraryTarget: 'umd',
 	},
 	mode: 'production',

@@ -18,7 +18,8 @@ Thumbs.db
 node_modules/
 
 # Production
-/dist
+/lib
+/bundles
 
 # Also
 .env

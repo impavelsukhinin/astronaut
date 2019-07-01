@@ -6,14 +6,14 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react",
-    "allowJs": true,
+    "declaration": true,
     "baseUrl": "src",
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "lib"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "./node_modules/*"]
+  "exclude": ["node_modules"]
 }

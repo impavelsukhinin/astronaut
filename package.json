@@ -1,28 +1,27 @@
 {
-  "name": "react-music-player",
-  "version": "1.0.0",
-  "description": "React Music Player",
-  "main": "src/index.tsx",
-  "repository": "git@github.com:impavelsukhinin/react-player.git",
+  "name": "austronaut",
+  "version": "0.0.1",
+  "description": "Simple React Players",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": "git@github.com:impavelsukhinin/austronaut.git",
   "author": "impavelsukhinin <p.sukhinin@rocketguys.com>",
   "license": "MIT",
   "scripts": {
     "start": "start-storybook",
     "prettier": "prettier --write \"{src/**/*.{ts,tsx},*.{json,js}}\"",
     "build": "NODE_ENV=production webpack --config ./webpack/build.js",
-    "tt": "tsc --noEmit",
-    "bb": "tsc -m es6 --outDir lib-esm"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "arrowParens": "always"
+    "compile": "tsc"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@storybook/addon-info": "^5.1.9",

@@ -14,7 +14,7 @@ const NavPanel = ({ play, onPlayButtonClick, onNextClick = noop, onPrevClick = n
 			<Icon name="prev" />
 		</Button>
 		<Button className={styles.button} onClick={onPlayButtonClick}>
-			<Icon className={styles.icon} name={play ? 'play' : 'pause' } />
+			<Icon className={styles.icon} name={play ? 'play' : 'pause'} />
 		</Button>
 		<Button onClick={onNextClick} className={styles.button}>
 			<Icon name="next" />

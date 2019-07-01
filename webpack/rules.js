@@ -1,3 +1,17 @@
+const IS_PROD = process.env.NODE_ENV === 'production'
+const tsxUse = [
+	{
+		loader: 'ts-loader',
+		options: {
+			transpileOnly: true,
+		},
+	},
+]
+
+if (!IS_PROD) {
+	tsxUse.push(require.resolve('react-docgen-typescript-loader'))
+}
+
 module.exports = [
 	{
 		test: /\.tsx?$/,
@@ -8,7 +22,7 @@ module.exports = [
 					transpileOnly: true,
 				},
 			},
-			// require.resolve('react-docgen-typescript-loader'),
+			require.resolve('react-docgen-typescript-loader'),
 		],
 		exclude: /node_modules/,
 	},
@@ -20,7 +34,7 @@ module.exports = [
 				loader: 'css-loader',
 				options: {
 					modules: {
-						localIdentName: '[name]--[local]--[hash:base64:5]',
+						localIdentName: IS_PROD ? '[hash:base64:5]' : '[name]--[local]--[hash:base64:5]',
 					},
 					sourceMap: true,
 					importLoaders: 1,
