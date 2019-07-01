@@ -11,7 +11,7 @@ import styles from './AudioPlayer.pcss'
 
 import { PlayerProps } from './AudioPlayer.d'
 
-const AudioPlayer = ({
+const AudioPlayer: React.FC<PlayerProps> = ({
 	sound,
 	className,
 	onNextClick,
@@ -19,7 +19,7 @@ const AudioPlayer = ({
 	onPlayPauseClick,
 	onSoundEnded,
 	onTimeUpdate,
-}: PlayerProps) => {
+}) => {
 	const [soundEl] = useState<HTMLAudioElement>(new Audio(sound))
 	const [timePercent, setTimePercent] = useState<number>(0)
 	const [bufferPercent, setBufferPercent] = useState<number>(0)

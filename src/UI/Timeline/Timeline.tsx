@@ -4,7 +4,7 @@ import styles from './Timeline.pcss'
 
 import { TimelineProps } from './Timeline.d'
 
-const Timeline = ({ timePercent, bufferPercent, onTimelineClick }: TimelineProps) => {
+const Timeline: React.FC<TimelineProps> = ({ timePercent, bufferPercent, onTimelineClick }) => {
 	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		const { currentTarget, clientX } = e
 		const { left, width } = currentTarget.getBoundingClientRect()

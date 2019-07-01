@@ -8,7 +8,7 @@ import { INavPanelProps } from './NavPanel.d'
 
 const noop = () => false
 
-const NavPanel = ({ play, onPlayButtonClick, onNextClick = noop, onPrevClick = noop }: INavPanelProps) => (
+const NavPanel: React.FC<INavPanelProps> = ({ play, onPlayButtonClick, onNextClick = noop, onPrevClick = noop }) => (
 	<div className={styles.root}>
 		<Button onClick={onPrevClick} className={styles.button}>
 			<Icon name="prev" />

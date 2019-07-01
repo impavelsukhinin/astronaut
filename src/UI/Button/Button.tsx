@@ -3,12 +3,12 @@ import classnames from 'classnames/bind'
 
 import styles from './Button.pcss'
 
-import { IButtonProps } from './Button.d'
+import { IButtonComponentType } from './Button.d'
 
 const cx = classnames.bind(styles)
 
-const Button = ({ children, className, onClick }: IButtonProps) => {
-	const buttonRef = React.useRef<HTMLDivElement>(null)
+const Button: IButtonComponentType = ({ children, className, onClick }) => {
+	const buttonRef = useRef<HTMLDivElement>(null)
 	const [withRipple, setWithRipple] = useState<boolean>(false)
 
 	const onClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -20,7 +20,7 @@ const Button = ({ children, className, onClick }: IButtonProps) => {
 		button.style.setProperty('--ripple-position-top', `${y}px`)
 		button.style.setProperty('--ripple-position-left', `${x}px`)
 
-		if (withRipple === false) {
+		if (!withRipple) {
 			setWithRipple(true)
 
 			setTimeout(() => {
@@ -40,4 +40,4 @@ const Button = ({ children, className, onClick }: IButtonProps) => {
 	)
 }
 
-export default memo(Button)
+export default memo<IButtonComponentType>(Button)
