@@ -13,15 +13,14 @@
     "build": "NODE_ENV=production webpack --config ./webpack/build.js",
     "compile": "tsc"
   },
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "classnames": "^2.2.6"
-  },
   "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "classnames": "^2.2.6"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@storybook/addon-info": "^5.1.9",
@@ -39,6 +38,8 @@
     "cssnano": "^4.1.10",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.7.0",
+    "lint-staged": "^8.2.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
     "prettier": "^1.18.2",
@@ -60,5 +61,22 @@
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2",
     "webpack-node-externals": "^1.7.2"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "yarn prettier",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
   }
 }
