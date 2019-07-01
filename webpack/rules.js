@@ -15,15 +15,7 @@ if (!IS_PROD) {
 module.exports = [
 	{
 		test: /\.tsx?$/,
-		use: [
-			{
-				loader: 'ts-loader',
-				options: {
-					transpileOnly: true,
-				},
-			},
-			require.resolve('react-docgen-typescript-loader'),
-		],
+		use: tsxUse,
 		exclude: /node_modules/,
 	},
 	{

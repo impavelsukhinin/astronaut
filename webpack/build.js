@@ -3,7 +3,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const rules = require('./rules')
-const libName = 'austronaut'
+const libName = 'Austronaut'
 
 module.exports = {
 	entry: {
@@ -16,7 +16,7 @@ module.exports = {
 	externals: [nodeExternals()],
 	plugins: [
 		new CompressionPlugin({
-			test: /\.js(\?.*)?$/i
+			test: /\.js(\?.*)?$/i,
 		}),
 	],
 	optimization: {

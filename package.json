@@ -1,8 +1,9 @@
 {
   "name": "austronaut",
   "version": "0.0.1",
-  "description": "Simple React Players",
-  "main": "lib/index.js",
+  "description": "Simple React Players Library",
+  "main": "./lib/index.js",
+  "module": "./src/",
   "typings": "lib/index.d.ts",
   "repository": "git@github.com:impavelsukhinin/austronaut.git",
   "author": "impavelsukhinin <p.sukhinin@rocketguys.com>",
@@ -61,6 +62,9 @@
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2",
     "webpack-node-externals": "^1.7.2"
+  },
+  "engines": {
+    "node": ">= 8"
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
