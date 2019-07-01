@@ -1,17 +1,15 @@
-import React, { memo, useState } from 'react'
-import classnames from 'classnames'
+import React, { useState } from 'react'
 
 import { RangeSlider, Timeline } from 'UI'
 import useEventListner from 'utils/useEventListner'
 import useUpdate from 'utils/useUpdate'
 
 import NavPanel from './NavPanel'
-
-import styles from './AudioPlayer.pcss'
+import { Main, Root } from './Styles'
 
 import { PlayerProps } from './AudioPlayer.d'
 
-const AudioPlayer: React.FC<PlayerProps> = ({
+const AudioPlayer = ({
 	sound,
 	className,
 	onNextClick,
@@ -19,7 +17,7 @@ const AudioPlayer: React.FC<PlayerProps> = ({
 	onPlayPauseClick,
 	onSoundEnded,
 	onTimeUpdate,
-}) => {
+}: PlayerProps) => {
 	const [soundEl] = useState<HTMLAudioElement>(new Audio(sound))
 	const [timePercent, setTimePercent] = useState<number>(0)
 	const [bufferPercent, setBufferPercent] = useState<number>(0)
@@ -79,14 +77,14 @@ const AudioPlayer: React.FC<PlayerProps> = ({
 	useEventListner<HTMLAudioElement>('ended', onEnded, soundEl)
 
 	return (
-		<div className={classnames(styles.root, className)}>
+		<Root className={className}>
 			<Timeline bufferPercent={bufferPercent} timePercent={timePercent} onTimelineClick={onChangeTimeHandler} />
-			<div className={styles.main}>
+			<Main>
 				<NavPanel play={play} onPlayButtonClick={playPauseClick} onNextClick={onNextClick} onPrevClick={onPrevClick} />
 				<RangeSlider startValue={100} onChange={onVolumeChange} />
-			</div>
-		</div>
+			</Main>
+		</Root>
 	)
 }
 
-export default memo(AudioPlayer)
+export default AudioPlayer

@@ -1,11 +1,8 @@
 import React, { memo, useState, useRef } from 'react'
-import classnames from 'classnames/bind'
 
-import styles from './Button.pcss'
+import { Button as StyledButton, ButtonChildren } from './Styles'
 
 import { IButtonComponentType } from './Button.d'
-
-const cx = classnames.bind(styles)
 
 const Button: IButtonComponentType = ({ children, className, onClick }) => {
 	const buttonRef = useRef<HTMLDivElement>(null)
@@ -34,9 +31,9 @@ const Button: IButtonComponentType = ({ children, className, onClick }) => {
 	}
 
 	return (
-		<div ref={buttonRef} onClick={onClickHandler} className={cx('button', className, { withRipple })}>
-			<div className={styles.children}>{children}</div>
-		</div>
+		<StyledButton className={className} ref={buttonRef} onClick={onClickHandler} withRipple={withRipple}>
+			<ButtonChildren>{children}</ButtonChildren>
+		</StyledButton>
 	)
 }
 

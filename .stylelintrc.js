@@ -11,10 +11,12 @@ const trbl = (name, suffix = '') => {
 const minMax = (suffix) => [suffix, `min-${suffix}`, `max-${suffix}`]
 
 module.exports = {
+	processors: ['stylelint-processor-styled-components'],
 	plugins: 'stylelint-order',
-	extends: 'stylelint-config-standard',
-	ignoreFiles: './scripts/*',
+	extends: ['stylelint-config-standard', 'stylelint-config-recommended', 'stylelint-config-styled-components'],
+	ignoreFiles: ['./src/**/*.js'],
 	rules: {
+		'declaration-block-trailing-semicolon': 'always',
 		'order/order': [['custom-properties'], { unspecified: 'bottom' }],
 		'order/properties-order': [
 			[

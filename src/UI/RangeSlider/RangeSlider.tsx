@@ -1,12 +1,9 @@
 import React, { memo, useEffect, useState, useRef } from 'react'
-import classnames from 'classnames/bind'
 import useEventListener from 'utils/useEventListner'
 
-import styles from './RangeSlider.pcss'
+import { Drag, Slider, Done } from './Styles'
 
 import { RangeSliderProps } from './RangeSlider.d'
-
-const cx = classnames.bind(styles)
 
 const RangeSlider: React.FC<RangeSliderProps> = ({ startValue = 100, onChange }) => {
 	const [mouseDown, setMouseDown] = useState<boolean>(false)
@@ -57,10 +54,10 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ startValue = 100, onChange })
 	useEventListener('mouseup', mouseUpHandler)
 
 	return (
-		<div ref={slider} className={styles.slider}>
-			<div ref={done} className={styles.done} />
-			<button ref={button} className={cx('button', { active: mouseDown })} />
-		</div>
+		<Slider ref={slider}>
+			<Done ref={done} />
+			<Drag ref={button} active={mouseDown} />
+		</Slider>
 	)
 }
 

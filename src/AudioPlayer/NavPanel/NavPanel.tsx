@@ -1,25 +1,23 @@
 import React from 'react'
 
-import { Button, Icon } from 'UI'
-
-import styles from './NavPanel.pcss'
+import { Root, Button, Icon } from './Styles'
 
 import { INavPanelProps } from './NavPanel.d'
 
 const noop = () => false
 
 const NavPanel: React.FC<INavPanelProps> = ({ play, onPlayButtonClick, onNextClick = noop, onPrevClick = noop }) => (
-	<div className={styles.root}>
-		<Button onClick={onPrevClick} className={styles.button}>
+	<Root>
+		<Button onClick={onPrevClick}>
 			<Icon name="prev" />
 		</Button>
-		<Button className={styles.button} onClick={onPlayButtonClick}>
-			<Icon className={styles.icon} name={play ? 'play' : 'pause'} />
+		<Button onClick={onPlayButtonClick}>
+			<Icon name={play ? 'play' : 'pause'} />
 		</Button>
-		<Button onClick={onNextClick} className={styles.button}>
+		<Button onClick={onNextClick}>
 			<Icon name="next" />
 		</Button>
-	</div>
+	</Root>
 )
 
 export default NavPanel

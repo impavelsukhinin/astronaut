@@ -1,6 +1,7 @@
+/* stylelint-disable */
 import React from 'react'
 
-import styles from './Timeline.pcss'
+import { Root, Time, Buffer } from './Styles'
 
 import { TimelineProps } from './Timeline.d'
 
@@ -14,10 +15,10 @@ const Timeline: React.FC<TimelineProps> = ({ timePercent, bufferPercent, onTimel
 	}
 
 	return (
-		<div onClick={handleClick} className={styles.root}>
-			<div className={styles.time} style={{ width: `${timePercent}%` }} />
-			<div className={styles.buffer} style={{ width: `${bufferPercent}%` }} />
-		</div>
+		<Root onClick={handleClick}>
+			<Time style={{ width: `${timePercent}%` }} />
+			<Buffer style={{ width: `${bufferPercent}%` }} />
+		</Root>
 	)
 }
 

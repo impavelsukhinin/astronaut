@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import paths from './paths'
 
 interface IconProps {
@@ -12,4 +12,4 @@ const Icon: React.FC<IconProps> = ({ name = 'prev', className }) => (
 	</svg>
 )
 
-export default Icon
+export default memo(Icon)
