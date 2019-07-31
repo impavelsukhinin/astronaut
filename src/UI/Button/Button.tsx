@@ -1,6 +1,6 @@
 import React, { memo, useState, useRef } from 'react'
 
-import { Button as StyledButton, ButtonChildren } from './Styles'
+import { Button as StyledButton, ButtonChildren } from './Button.styled'
 
 import { IButtonComponentType } from './Button.d'
 

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import paths from './paths'
 
-interface IconProps {
+export interface IconProps {
 	name: keyof typeof paths
 	className?: string
 }

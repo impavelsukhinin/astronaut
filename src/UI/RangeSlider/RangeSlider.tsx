@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState, useRef } from 'react'
 import useEventListener from 'utils/useEventListner'
 
-import { Drag, Slider, Done } from './Styles'
+import { Drag, Slider, Done } from './RangeSlider.styled'
 
 import { RangeSliderProps } from './RangeSlider.d'
 

@@ -26,14 +26,13 @@ export const Button = styled('div')<{ withRipple: boolean }>`
 	overflow: hidden;
 	justify-content: center;
 	padding: 2rem;
-	background: var(--blue);
 	border-radius: 50%;
-	box-shadow: 0 0.2em 1em 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0.1em 0.4em 0 rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	transition: transform 0.3s, box-shadow 0.3s;
 
 	:hover {
-		box-shadow: 0 0.5em 1.5em 0 rgba(0, 0, 0, 0.5);
+		box-shadow: 0 0.2em 0.7em 0 rgba(0, 0, 0, 0.3);
 		transform: scale(1.05);
 	}
 

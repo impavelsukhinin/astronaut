@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { default as StyledButton } from 'UI/Button'
-import { default as StyledIcon } from 'UI/Icon'
+import { default as StyledIcon, IconProps } from 'UI/Icon'
 
 export const Root = styled('div')`
 	display: flex;
@@ -16,7 +16,7 @@ export const Button = styled(StyledButton)`
 	}
 `
 
-export const Icon = styled(StyledIcon)`
+export const Icon = styled(StyledIcon)<IconProps>`
 	width: 2em;
 	height: 2em;
 	user-select: none;

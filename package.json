@@ -12,7 +12,8 @@
     "start": "start-storybook",
     "prettier": "prettier --write \"{src/**/*.{ts,tsx},*.{json,js}}\"",
     "build": "NODE_ENV=production webpack --config ./webpack/build.js",
-    "compile": "tsc"
+    "compile": "tsc",
+    "test": "jest"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@storybook/addon-info": "^5.1.9",
     "@storybook/react": "^5.1.9",
+    "@types/jest": "^24.0.15",
     "@types/node": "^12.0.10",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
@@ -38,6 +40,7 @@
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.7.0",
+    "jest": "^24.8.0",
     "lint-staged": "^8.2.1",
     "prettier": "^1.18.2",
     "react-docgen-typescript-loader": "^3.1.0",
@@ -50,6 +53,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^3.0.0",
     "stylelint-processor-styled-components": "^1.8.0",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",
     "tslint-config-airbnb": "^5.11.1",

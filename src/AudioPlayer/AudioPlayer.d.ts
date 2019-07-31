@@ -1,8 +1,10 @@
 export interface PlayerProps {
-	/** Audio file path/url*/
+	/** Audio file path */
 	sound?: string
 	/** Classname for root element */
 	className?: string
+	/** Song title */
+	children?: JSX.Element[] | JSX.Element
 	/** onNext button event handler */
 	onNextClick?: () => void
 	/** onPrev button event handler */

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Root, Button, Icon } from './Styles'
+import { Root, Button, Icon } from './NavPanel.styled'
 
 import { INavPanelProps } from './NavPanel.d'
 
